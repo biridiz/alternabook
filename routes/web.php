@@ -14,13 +14,13 @@
 */
 
 $router->get('/', function () use ($router) {
-    return view('index', ['name' => 'Lindoes']);
+    return view('pages.index', ['name' => 'Lindoes']);
 });
 
 $router->get('/login', function () use ($router) {
-    return view('login');
+    return view('pages.login');
 });
 
 $router->get('/cadastro', function () use ($router) {
-    return view('cadastro', ['email' => 'leo@gmail.com']);
+    return view('pages.cadastro', ['email' => 'leo@gmail.com']);
 });
