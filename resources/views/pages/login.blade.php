@@ -21,7 +21,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 col-xs-12">
-                        <div class="card bg-dark text-light shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card bg-light text-dark shadow-lg border-0 rounded-lg mt-5">
                             <div class="text-center">
                                 <h3 class="text-center my-4">Login</h3>
                             </div>
@@ -45,7 +45,7 @@
                                             placeholder="Senha">
                                     </div>
                                     <div>
-                                        <button class="form-control btn-dark">
+                                        <button class="form-control btn-dark btn-entrar">
                                             Entrar
                                         </button>
                                     </div>
