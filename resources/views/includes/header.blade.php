@@ -1,8 +1,8 @@
 <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand "><img class="logo" src="/images/logo.png" alt=""></a>
-        <form class="d-flex" action="/search" method="POST">
-            <input class="form-control" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+        <form class="d-flex" action="/books" method="GET">
+            <input class="form-control" type="text" name="s" value="@isset($term){{$term}}@endisset" placeholder="Pesquisar" aria-label="Pesquisar">
             <button class="btn btn-outline-primary" type="submit"><i class="fab fa-searchengin"></i></button>
         </form>
         <?php
