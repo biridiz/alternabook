@@ -1,3 +1,6 @@
+@extends('layouts.default')
+@section('content')
+
 <!doctype html>
 <html lang="pt-br">
     <head>
@@ -17,6 +20,36 @@
     </head>
     
     <body>
-        <h1>e-mail: {{ $email }}</h1>
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Nome completo</label>
+                <input type="text" class="form-control" id="name" placeholder="Leonardo da Silva">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Data de nascimento</label>
+                <input type="date" class="form-control" id="data_nascimento" placeholder="21/12/1999">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Senha</label>
+                <input type="password" class="form-control" id="senha">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Sexo</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="N">Não declarar</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Cadastrar">
+            </div>
+        </form>
     </body>
 </html>
+
+@stop

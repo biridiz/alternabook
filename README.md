@@ -16,11 +16,12 @@ $ php -S localhost:8000 -t public
 
 https://remotemysql.com/databases.php
 
-Username: R7Owsmotde
-Database name: R7Owsmotde
-Password: K7DVKWmldG
-Server: remotemysql.com
-Port: 3306
+DB_CONNECTION=mysql
+DB_HOST=sql10.freemysqlhosting.net
+DB_PORT=3306
+DB_DATABASE=sql10435749
+DB_USERNAME=sql10435749
+DB_PASSWORD=DC8gmFUzRC
 
 These are the username and password to log in to your database and phpMyAdmin
 

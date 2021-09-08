@@ -22,5 +22,5 @@ $router->get('/login', function () use ($router) {
 });
 
 $router->get('/cadastro', function () use ($router) {
-    return view('pages.cadastro', ['email' => 'leo@gmail.com']);
+    return view('pages.cadastro');
 });
