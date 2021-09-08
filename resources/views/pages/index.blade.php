@@ -12,11 +12,11 @@ foreach ($livros as $livro) { ?>
     <div class="list-group list-books">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Nome do livro <?php echo $livro ?></h5>
-            <small>1 dia atrás <?php echo $livro ?></small>
+            <h5 class="mb-1">Nome do livro {{ $livro->titulo_livro }}</h5>
+            <small>1 dia atrás {{ $livro->titulo_livro }}</small>
             </div>
-            <p class="mb-1">Descrição <?php echo $livro ?></p>
-            <small>Autor da publicação <?php echo $livro ?></small>
+            <p class="mb-1">Descrição {{ $livro->titulo_livro }}</p>
+            <small>Autor da publicação {{ $livro->titulo_livro }}</small>
         </a>
     </div>
 <?php } 
