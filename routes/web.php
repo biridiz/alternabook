@@ -14,7 +14,9 @@
 */
 
 $router->get('/', function () use ($router) {
-    return view('pages.index', ['name' => 'Lindoes']);
+    $livros = DB::table('livro')->get();
+
+    return view('pages.index', ['name' => 'Lindoes', 'livros' => $livros]);
 });
 
 $router->get('/login', function () use ($router) {
