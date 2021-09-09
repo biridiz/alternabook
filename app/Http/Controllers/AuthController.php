@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -19,11 +21,38 @@ class AuthController extends Controller
 
     public function signUpUser(Request $request)
     {
-        $searchTerm = $request->input('s');
+        session_start();
 
-        $livros = DB::table('livro')->where('titulo_livro', 'like', '%'. $searchTerm . '%')->get();
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'senha' => 'required',
+            'data_nascimento' => 'nullable|date',
+        ]);
 
-        return json_encode();
+        if ($validator->fails()) {
+            return view('pages.cadastro')->withErrors($validator);
+        }
+
+        $userData = $request->only(['name', 'data_nascimento', 'email', 'senha', 'sexo']);
+
+        $countUsersByEmail = DB::table('usuario')->where('email', $userData['email'])->count();
+
+        if($countUsersByEmail > 0){
+            return view('pages.cadastro', ['msg' => 'E-mail informado já esta sendo utilizado']);
+        }
+        
+        $userId = DB::table('usuario')->insertGetId([
+            'nome_usuario' => $userData['name'],
+            'data_nascimento' => $userData['data_nascimento'],
+            'sexo' => $userData['sexo'],
+            'email' => $userData['email'],
+            'senha' => $userData['senha'],
+        ]);
+
+        $_SESSION["loggedUserId"] = $userId;
+        
+        return redirect('/');
     }
 
     public function signUpPage()

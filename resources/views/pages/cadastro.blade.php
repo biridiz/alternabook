@@ -29,26 +29,46 @@
                                 <h3 class="text-center my-4">Cadastro</h3>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form action="{{ url('/signup') }}" method="POST">
+
+                                @isset($msg)
+                                    <div class="alert alert-warning">{{ $msg }}</div>
+                                @endisset
+
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Nome completo</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Leonardo da Silva">
+                                    <label>Nome completo</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Leonardo da Silva">
+                                    @isset($errors)
+                                    {{ $errors->first('namee') }}
+                                    @endisset
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Data de nascimento</label>
-                                    <input type="date" class="form-control" id="data_nascimento" placeholder="21/12/1999">
+                                    <label>Data de nascimento</label>
+                                    <input type="date" class="form-control" name="data_nascimento" placeholder="21/12/1999">
+
+                                    @isset($errors)
+                                    {{ $errors->first('data_nascimento') }}
+                                    @endisset
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Email address</label>
-                                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                                    <label>Email address</label>
+                                    <input type="email" class="form-control" name="email" placeholder="name@example.com">
+
+                                    @isset($errors)
+                                    {{ $errors->first('email') }}
+                                    @endisset
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Senha</label>
-                                    <input type="password" class="form-control" id="senha">
+                                    <label>Senha</label>
+                                    <input type="password" class="form-control" name="senha">
+
+                                    @isset($errors)
+                                    {{ $errors->first('senha') }}
+                                    @endisset
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Sexo</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
+                                    <select class="form-control" name="sexo">
                                         <option value="M">Masculino</option>
                                         <option value="F">Feminino</option>
                                         <option value="N">Não declarar</option>
