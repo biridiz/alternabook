@@ -20,7 +20,7 @@
     </head>
     
     <body>
-        <form action="/" method="POST">
+        <form action="#" method="POST">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Nome completo</label>
                 <input type="text" class="form-control" id="name" placeholder="Leonardo da Silva">
@@ -47,6 +47,9 @@
             </div>
             <div>
                 <input type="submit" value="Cadastrar">
+            </div>
+            <div class="card-mobile card-footer footer text-center">
+                <div ><a class="small color-link" href="/login">Login</a></div>
             </div>
         </form>
     </body>
