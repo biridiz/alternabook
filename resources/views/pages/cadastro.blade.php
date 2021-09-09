@@ -58,7 +58,7 @@
                                     <input class="form-control btn-dark" type="submit" value="Cadastrar">
                                 </div>
                                 <div class="card-mobile card-footer footer text-center">
-                                    <div ><a class="small color-link" href="/login">Login</a></div>
+                                    <div ><a class="small color-link" href="{{ url('/signin') }}">Login</a></div>
                                 </div>
                         </div>
                     </div>

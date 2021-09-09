@@ -55,7 +55,7 @@
                                 </form>
                             </div>
                             <div class="card-mobile card-footer footer text-center">
-                                <div ><a class="small color-link" href="/cadastro">Criar conta</a></div>
+                                <div ><a class="small color-link" href="{{ url('/signup') }}">Criar conta</a></div>
                             </div>
                         </div>
                     </div>

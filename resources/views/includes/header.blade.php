@@ -8,14 +8,14 @@
         <?php
         $authenticate = FALSE; ?>
         <?php if (!$authenticate) { ?>
-            <a class="btn-login" href="{{ url('/login') }}">
+            <a class="btn-login" href="{{ url('/signin') }}">
                 <button class="btn btn-primary">
                     Login
                 </button>
             </a>
         <?php } ?>
         <?php if ($authenticate) { ?>
-            <a class="btn-login" href="{{ url('/logout') }}">
+            <a class="btn-login" href="{{ url('/signout') }}">
                 <button class="btn btn-primary">
                     Logout
                 </button>
