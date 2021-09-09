@@ -18,11 +18,3 @@ $router->get('/', function () use ($router) {
 
     return view('pages.index', ['name' => 'Lindoes', 'livros' => $livros]);
 });
-
-$router->get('/login', function () use ($router) {
-    return view('pages.login');
-});
-
-$router->get('/cadastro', function () use ($router) {
-    return view('pages.cadastro');
-});
