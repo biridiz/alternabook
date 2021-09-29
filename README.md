@@ -21,3 +21,6 @@ php artisan make:migration class --create=tablename
 ## Forma para consultar, etc
 
 $results = DB::select("SELECT * FROM users");
+
+## migration 
+php artisan migrate
