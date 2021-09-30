@@ -25,4 +25,21 @@ class BookController extends Controller
 
         return view('pages.index', ['term' => $searchTerm, 'livros' => $livros]);
     }
+
+    public function searchDetail(Request $request)
+    {
+        $searchTerm = $request->input('livro');
+
+        if($searchTerm == "")
+            return response()->json([]);
+
+        $livros = DB::table('livro')
+            ->join('autor', 'livro.id_autor', '=', 'autor.id')
+            ->join('editora', 'livro.id_editora', '=', 'editora.id')
+            ->where('titulo_livro', 'like', '%'. $searchTerm . '%')
+            ->select('autor.nome_autor', 'autor.id as id_autor', 'editora.nome_editora', 'editora.id as id_editora')
+            ->get();
+
+        return response()->json($livros);
+    }
 }
