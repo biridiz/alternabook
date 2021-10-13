@@ -5,21 +5,18 @@
             <input class="form-control" type="text" name="s" value="@isset($term){{$term}}@endisset" placeholder="Pesquisar" aria-label="Pesquisar">
             <button class="btn btn-outline-primary" type="submit"><i class="fab fa-searchengin"></i></button>
         </form>
-        <?php
-        $authenticate = FALSE; ?>
-        <?php if (!$authenticate) { ?>
-            <a class="btn-login" href="{{ url('/signin') }}">
-                <button class="btn btn-primary">
-                    Login
-                </button>
-            </a>
-        <?php } ?>
-        <?php if ($authenticate) { ?>
-            <a class="btn-login" href="{{ url('/signout') }}">
-                <button class="btn btn-primary">
-                    Logout
-                </button>
-            </a>
-        <?php } ?>
+        @if($userLogged)
+        <a class="btn-login" href="{{ url('/signout') }}">
+            <button class="btn btn-primary">
+                Logout
+            </button>
+        </a>
+        @else
+        <a class="btn-login" href="{{ url('/signin') }}">
+            <button class="btn btn-primary">
+                Login
+            </button>
+        </a>
+        @endif
     </div>
 </nav>

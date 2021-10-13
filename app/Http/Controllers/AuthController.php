@@ -19,6 +19,40 @@ class AuthController extends Controller
         //
     }
 
+    public function signInUser(Request $request)
+    {
+        session_start();
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'senha' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return view('pages.login')->withErrors($validator);
+        }
+
+        $userData = $request->only(['email', 'senha']);
+
+        $countUsersByEmail = DB::table('usuario')
+                                ->where('email', $userData['email'])
+                                ->where('senha', $userData['senha'])
+                                ->count();
+
+        if($countUsersByEmail == 0){
+            return view('pages.login', ['msg' => 'Não foi encontrado nenhum usuário']);
+        }
+
+        $user = DB::table('usuario')
+                ->where('email', $userData['email'])
+                ->where('senha', $userData['senha'])
+                ->first();
+        
+        $_SESSION["loggedUserId"] = $user->id;
+        
+        return view('pages.login');
+    }
+
     public function signUpUser(Request $request)
     {
         session_start();

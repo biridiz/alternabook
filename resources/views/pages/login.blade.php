@@ -26,7 +26,11 @@
                                 <h3 class="text-center my-4">Login</h3>
                             </div>
                             <div class="card-body">
-                                <form>
+                            <form action="{{ url('/signin') }}" method="POST">
+                                    @isset($msg)
+                                    <div class="alert alert-warning">{{ $msg }}</div>
+                                    @endisset
+
                                     <div class="form-group">
                                         <label class="small mb-1" for="email"></label>
                                         <input class="form-control py-4 inputs" 
@@ -35,14 +39,20 @@
                                             type="email" 
                                             aria-describedby="emailHelp" 
                                             placeholder="Email">
+                                        @isset($errors)
+                                        {{ $errors->first('email') }}
+                                        @endisset
                                     </div>
                                     <div class="form-group">
-                                        <label class="small mb-1" for="password"></label>
+                                        <label class="small mb-1" for="senha"></label>
                                         <input class="form-control py-4 inputs" 
-                                            id="password"
-                                            name="password"
+                                            id="senha"
+                                            name="senha"
                                             type="password" 
                                             placeholder="Senha">
+                                        @isset($errors)
+                                        {{ $errors->first('senha') }}
+                                        @endisset
                                     </div>
                                     <div>
                                         <button class="form-control btn-dark btn-entrar">

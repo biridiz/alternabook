@@ -16,5 +16,5 @@
 $router->get('/', function () use ($router) {
     $livros = DB::table('livro')->get();
 
-    return view('pages.index', ['name' => 'Lindoes', 'livros' => $livros]);
+    return view('pages.index', ['name' => 'Lindoes', 'livros' => $livros, 'userLogged' => AuthHelper::has()]);
 });
