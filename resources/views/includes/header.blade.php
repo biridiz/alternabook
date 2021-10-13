@@ -6,18 +6,13 @@
             <button class="btn btn-outline-primary" type="submit"><i class="fab fa-searchengin"></i></button>
            
             @if($userLogged)
-            <a class="btn-login" href="{{ url('/resenha') }}">
+            <a class="btn-login" href="{{ url('/review/register') }}">
                 <button type="button" class="btn btn-primary">
-                    Nova Resenha
+                Criar resenha
                 </button>
             </a>
             @endif
         </form>
-        <a class="btn-login" href="{{ url('/review/register') }}">
-            <button class="btn btn-primary">
-                Criar resenha
-            </button>
-        </a>
         @if($userLogged)
         <a class="btn-login" href="{{ url('/signout') }}">
             <button type="button" class="btn btn-primary">

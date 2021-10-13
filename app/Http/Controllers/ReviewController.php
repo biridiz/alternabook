@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\AuthHelper;
+
 class ReviewController extends Controller
 {
     /**
@@ -16,7 +18,7 @@ class ReviewController extends Controller
 
     public function register()
     {
-        return view('pages.review-register');
+        return view('pages.review-register', ['userLogged' => AuthHelper::has()]);
     }
 
 }
