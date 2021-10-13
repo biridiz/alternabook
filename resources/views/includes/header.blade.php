@@ -5,6 +5,11 @@
             <input class="form-control" type="text" name="s" value="@isset($term){{$term}}@endisset" placeholder="Pesquisar" aria-label="Pesquisar">
             <button class="btn btn-outline-primary" type="submit"><i class="fab fa-searchengin"></i></button>
         </form>
+        <a class="btn-login" href="{{ url('/review/register') }}">
+            <button class="btn btn-primary">
+                Criar resenha
+            </button>
+        </a>
         <?php
         $authenticate = FALSE; ?>
         <?php if (!$authenticate) { ?>

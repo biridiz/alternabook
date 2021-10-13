@@ -112,6 +112,7 @@ $app->router->group([
     require __DIR__.'/../routes/web.php';
     require __DIR__.'/../routes/book.php';
     require __DIR__.'/../routes/auth.php';
+    require __DIR__.'/../routes/review.php';
 });
 
 return $app;
