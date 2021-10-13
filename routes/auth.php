@@ -9,3 +9,5 @@ $router->post('/signin', 'AuthController@signInUser');
 $router->get('/signup', 'AuthController@signUpPage');
 
 $router->get('/signin', 'AuthController@signInPage');
+
+$router->get('/signout', 'AuthController@signOutPage');

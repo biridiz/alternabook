@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\AuthHelper;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
@@ -50,7 +51,7 @@ class AuthController extends Controller
         
         $_SESSION["loggedUserId"] = $user->id;
         
-        return view('pages.login');
+        return redirect('/');
     }
 
     public function signUpUser(Request $request)
@@ -85,6 +86,12 @@ class AuthController extends Controller
         ]);
 
         $_SESSION["loggedUserId"] = $userId;
+        
+        return redirect('/');
+    }
+
+    public function signOutPage() {
+        AuthHelper::clear();
         
         return redirect('/');
     }

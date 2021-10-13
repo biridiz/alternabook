@@ -1,6 +1,7 @@
 <?php
 
 /** @var \Laravel\Lumen\Routing\Router $router */
+use App\Helpers\AuthHelper;
 
 /*
 |--------------------------------------------------------------------------

@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Helpers;
+
+use Illuminate\Support\Facades\DB;
+
 class AuthHelper {
 
     static function get(){
@@ -32,5 +36,11 @@ class AuthHelper {
         }
 
         return true;
+    }
+
+    static function clear() {
+        session_start();
+
+        unset($_SESSION["loggedUserId"]);
     }
 }

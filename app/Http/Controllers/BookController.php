@@ -28,7 +28,7 @@ class BookController extends Controller
 
     public function searchDetail(Request $request)
     {
-        $searchTerm = $request->input('livro');
+        $searchTerm = $request->input('term');
 
         if($searchTerm == "")
             return response()->json([]);
@@ -37,7 +37,7 @@ class BookController extends Controller
             ->join('autor', 'livro.id_autor', '=', 'autor.id')
             ->join('editora', 'livro.id_editora', '=', 'editora.id')
             ->where('titulo_livro', 'like', '%'. $searchTerm . '%')
-            ->select('autor.nome_autor', 'autor.id as id_autor', 'editora.nome_editora', 'editora.id as id_editora')
+            ->select('livro.titulo_livro as nome_livro', 'livro.id as id_livro', 'autor.nome_autor', 'autor.id as id_autor', 'editora.nome_editora', 'editora.id as id_editora')
             ->get();
 
         return response()->json($livros);
