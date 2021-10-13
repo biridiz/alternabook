@@ -10,21 +10,18 @@
                 Criar resenha
             </button>
         </a>
-        <?php
-        $authenticate = FALSE; ?>
-        <?php if (!$authenticate) { ?>
-            <a class="btn-login" href="{{ url('/signin') }}">
-                <button class="btn btn-primary">
-                    Login
-                </button>
-            </a>
-        <?php } ?>
-        <?php if ($authenticate) { ?>
-            <a class="btn-login" href="{{ url('/signout') }}">
-                <button class="btn btn-primary">
-                    Logout
-                </button>
-            </a>
-        <?php } ?>
+        @if($userLogged)
+        <a class="btn-login" href="{{ url('/signout') }}">
+            <button class="btn btn-primary">
+                Logout
+            </button>
+        </a>
+        @else
+        <a class="btn-login" href="{{ url('/signin') }}">
+            <button class="btn btn-primary">
+                Login
+            </button>
+        </a>
+        @endif
     </div>
 </nav>

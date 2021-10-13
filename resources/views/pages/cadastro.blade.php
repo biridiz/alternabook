@@ -19,7 +19,7 @@
                                 <label>Nome completo</label>
                                 <input type="text" class="form-control" name="name" placeholder="Leonardo da Silva">
                                 @isset($errors)
-                                {{ $errors->first('namee') }}
+                                {{ $errors->first('name') }}
                                 @endisset
                             </div>
                             <div class="form-group">
