@@ -13,6 +13,11 @@
             </a>
             @endif
         </form>
+        <a class="btn-login" href="{{ url('/review/register') }}">
+            <button class="btn btn-primary">
+                Criar resenha
+            </button>
+        </a>
         @if($userLogged)
         <a class="btn-login" href="{{ url('/signout') }}">
             <button type="button" class="btn btn-primary">
