@@ -16,8 +16,8 @@ class CreateLivroTable extends Migration
         Schema::create('livro', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->mediumText('imagem_capa')->nullable();
-            $table->string('titulo_livro', 50)->notNullable();
-            $table->string('titulo_original', 50)->nullable();
+            $table->string('titulo_livro', 200)->notNullable();
+            $table->string('titulo_original', 200)->nullable();
             $table->string('idioma_livro', 20)->notNullable();
             $table->unsignedBigInteger('id_editora')->notNullable();
             $table->unsignedBigInteger('id_autor')->notNullable();

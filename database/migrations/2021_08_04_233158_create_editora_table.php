@@ -15,7 +15,7 @@ class CreateEditoraTable extends Migration
     {
         Schema::create('editora', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome_editora', 50)->notNullable();
+            $table->string('nome_editora', 100)->notNullable();
             $table->string('contato_editora', 20)->nullable();
             $table->timestamps();
         });

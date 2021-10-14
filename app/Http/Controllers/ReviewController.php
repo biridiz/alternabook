@@ -73,4 +73,17 @@ class ReviewController extends Controller
 
         return redirect('/');
     }
+
+    public function list($id_livro) 
+    {
+        $resumos = DB::table('resumo')->join('usuario', 'resumo.id_usuario', '=', 'usuario.id')->where('id_usuario', '=', AuthHelper::get()->id)->where('id_livro', '=', $id_livro)->get();
+// echo '<pre>';
+// print_r($resumos);exit;
+        return view('pages.review-show', ['resumos' => $resumos, 'userLogged' => AuthHelper::has()]);
+    }
+
+    public function edit()
+    {
+        return view('pages.review-edit', ['userLogged' => AuthHelper::has()]);
+    }
 }

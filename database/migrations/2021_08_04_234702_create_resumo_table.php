@@ -15,7 +15,7 @@ class CreateResumoTable extends Migration
     {
         Schema::create('resumo', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('titulo_resumo', 50)->notNullable();
+            $table->string('titulo_resumo', 200)->notNullable();
             $table->unsignedBigInteger('id_usuario')->notNullable();
             $table->unsignedBigInteger('id_livro')->notNullable();
             $table->longText('resumo')->notNullable();
