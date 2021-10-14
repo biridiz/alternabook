@@ -15,7 +15,11 @@ use App\Helpers\AuthHelper;
 */
 
 $router->get('/', function () use ($router) {
-    $livros = DB::table('livro')->get();
+    $livros = DB::table('livro')
+    ->join('autor', 'livro.id_autor', '=', 'autor.id')
+    ->join('editora', 'livro.id_editora', '=', 'editora.id')
+    ->select('livro.titulo_livro', 'autor.nome_autor', 'editora.nome_editora')
+    ->get();
 
-    return view('pages.index', ['name' => 'Lindoes', 'livros' => $livros, 'userLogged' => AuthHelper::has()]);
+    return view('pages.index', ['livros' => $livros, 'userLogged' => AuthHelper::has()]);
 });

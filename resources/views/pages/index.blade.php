@@ -7,18 +7,15 @@
     </div>
 @endisset
 
-@foreach ($livros as $livro)
-    <div class="list-group list-books">
+<div class="list-group list-books">
+    @foreach ($livros as $livro)
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Nome do livro {{ $livro->titulo_livro }}</h5>
-            <small>1 dia atrás {{ $livro->titulo_livro }}</small>
-            </div>
-            <p class="mb-1">Descrição {{ $livro->titulo_livro }}</p>
-            <small>Autor da publicação {{ $livro->titulo_livro }}</small>
+            <p class="mb-1">Livro: {{ $livro->titulo_livro }}</p>
+            <p class="mb-1">Autor: {{ $livro->nome_autor }}</p>
+            <p class="mb-1">Editora: {{ $livro->nome_editora }}</p>
         </a>
-    </div>
-@endforeach
+    @endforeach
+</div>
 
 @if (count($livros) === 0)
     <div class="message-search col-md-6 offset-md-3 alert alert-warning text-center">

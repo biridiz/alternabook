@@ -30,6 +30,10 @@
     height: 90vh;
 }
 
+.list-books .list-group-item {
+    margin-bottom: 30px;
+}
+
 .footer {
     padding: 20px;
 }

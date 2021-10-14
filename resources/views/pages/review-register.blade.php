@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-body">
                         <form action="{{ url('/review/register') }}" class="container-review" method="POST">
-                            <input name="codigo_livro" id="codigo_livro" type="hidden" />
+                            <input name="codigo_livro" id="codigo_livro" type="hidden" value="{{ isset($form) ? $form['codigo_livro'] : '' }}" />
 
                             @isset($msg)
                             <div class="alert alert-warning">{{ $msg }}</div>
@@ -25,15 +25,15 @@
 
                             <div class="form-group ui-widget">
                                 <label>Livro</label>
-                                <span class="badge badge-info clear-label hide">Limpar</span>
-                                <input type="text" class="form-control" id="livro" name="livro" placeholder="">
+                                <span class="badge badge-info clear-label {{ isset($form) && $form['codigo_livro'] > 0 ? '' : 'hide' }}">Limpar</span>
+                                <input type="text" class="form-control" id="livro" name="livro" {{ isset($form) && $form['codigo_livro'] > 0 ? 'disabled=disabled' : '' }} value="{{ isset($form) ? $form['livro'] : '' }}">
                                 @isset($errors)
                                 {{ $errors->first('livro') }}
                                 @endisset
                             </div>
                             <div class="form-group">
                                 <label>Autor</label>
-                                <input type="text" class="form-control" name="autor" id="autor" placeholder="">
+                                <input type="text" class="form-control" name="autor" id="autor" {{ isset($form) && $form['codigo_livro'] > 0 ? 'disabled=disabled' : '' }} value="{{ isset($form) ? $form['autor'] : '' }}">
 
                                 @isset($errors)
                                 {{ $errors->first('autor') }}
@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Editora</label>
-                                <input type="text" class="form-control" name="editora" id="editora" placeholder="">
+                                <input type="text" class="form-control" name="editora" id="editora" {{ isset($form) && $form['codigo_livro'] > 0 ? 'disabled=disabled' : '' }} value="{{ isset($form) ? $form['editora'] : '' }}">
 
                                 @isset($errors)
                                 {{ $errors->first('editora') }}
@@ -97,6 +97,12 @@
 
             $(".clear-label").addClass('hide');
         });
+    });
+
+    $('.container-review').submit(function(e) {
+        $(':disabled').each(function(e) {
+            $(this).removeAttr('disabled');
+        })
     });
 </script>
 
