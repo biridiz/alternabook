@@ -23,7 +23,7 @@ class AuthHelper {
     }
 
     static function has(){
-        //session_start();
+        session_start();
             
         if(!isset($_SESSION["loggedUserId"]))
             return false;
@@ -34,8 +34,6 @@ class AuthHelper {
             unset($_SESSION["loggedUserId"]);
             return false;
         }
-
-        return true;
     }
 
     static function clear() {
